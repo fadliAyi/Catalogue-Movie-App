@@ -1,0 +1,28 @@
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">CatalogueMovie</string>
+    <string name="masukkan_judul_film">enter a movie title</string>
+    <string name="judul">title</string>
+    <string name="deskripsi">overview</string>
+    <string name="terbit">release</string>
+    <string name="title_activity_navigation">Now Playing</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Change Language Settings</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="now_playing">Now Playing</string>
+    <string name="up_coming">Up Coming</string>
+    <string name="np_text_judul">np_text_judul</string>
+    <string name="np_text_deskripsi">np_text_deskripsi</string>
+    <string name="np_text_terbit">np_text_terbit</string>
+    <string name="selengkapnya">Read more</string>
+    <string name="popularity">popularity</string>
+    <string name="search">Search</string>
+    <string name="the_flash">the flash</string>
+    <string name="android_studio">Android Studio</string>
+    <string name="android_studio_android_com">android.studio@android.com</string>
+    <string name="favorite">Favorite</string>
+</resources>
