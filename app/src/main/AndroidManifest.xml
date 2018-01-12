@@ -3,6 +3,13 @@
     package="com.dicoding.academies.ayi.cataloguemovie">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <permission
+        android:name="com.dicoding.academies.ayi.cataloguemovie.READ_DATABASE"
+        android:protectionLevel="normal" />
+    <permission
+        android:name="com.dicoding.academies.ayi.cataloguemovie.WRITE_DATABASE"
+        android:protectionLevel="normal" />
 
     <application
         android:allowBackup="true"
@@ -11,15 +18,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <!--<activity android:name=".MainActivity">-->
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN" />-->
 
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
-        <!--</activity>-->
-        <activity android:name=".activity.MovieItemActivity"
-            android:parentActivityName=".activity.NavigationActivity"/>
+        <!-- <activity android:name=".MainActivity"> -->
+        <!-- <intent-filter> -->
+        <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+        <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+        <!-- </intent-filter> -->
+        <!-- </activity> -->
+        <activity
+            android:name=".activity.MovieItemActivity"
+            android:parentActivityName=".activity.NavigationActivity" />
         <activity
             android:name=".activity.NavigationActivity"
             android:label="@string/title_activity_navigation"
@@ -30,8 +40,29 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.MainActivity"
-            android:parentActivityName=".activity.NavigationActivity"/>
+        <activity
+            android:name=".activity.MainActivity"
+            android:parentActivityName=".activity.NavigationActivity" />
+
+        <provider
+            android:name=".provider.FavoriteProvider"
+            android:authorities="com.dicoding.academies.ayi.cataloguemovie"
+            android:exported="true"
+            android:readPermission="com.dicoding.academies.ayi.cataloguemovie.READ_DATABASE"
+            android:writePermission="com.dicoding.academies.ayi.cataloguemovie.WRITE_DATABASE" />
+
+        <receiver android:name=".stackWidget.ImageBannerWidget">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/image_banner_widget_info" />
+        </receiver>
+
+        <service android:name=".stackWidget.StackWidgetService"
+            android:permission="android.permission.BIND_REMOTEVIEWS" />
     </application>
 
 </manifest>

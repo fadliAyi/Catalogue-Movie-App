@@ -5,8 +5,10 @@ package com.dicoding.academies.ayi.cataloguemovie.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.provider.Settings;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -47,9 +49,10 @@ public class NavigationActivity extends AppCompatActivity
 
         if (savedInstanceState == null ){
             NowPlayingFragment currentFragment = new NowPlayingFragment();
-            getSupportFragmentManager().beginTransaction().add(R.id.content_navigation, currentFragment, NowPlayingFragment.class.getSimpleName())
-                    .commit();
-            getSupportActionBar().setTitle(getResources().getString(R.string.now_playing));
+            getFragment(currentFragment, getResources().getString(R.string.now_playing));
+//            getSupportFragmentManager().beginTransaction().add(R.id.content_navigation, currentFragment, NowPlayingFragment.class.getSimpleName())
+//                    .commit();
+//            getSupportActionBar().setTitle(getResources().getString(R.string.now_playing));
         }
     }
 
@@ -95,28 +98,25 @@ public class NavigationActivity extends AppCompatActivity
 
         if (id == R.id.nav_camera) {
             NowPlayingFragment currentFragment = new NowPlayingFragment();
-
-            getSupportFragmentManager().beginTransaction().replace(R.id.content_navigation, currentFragment, NowPlayingFragment.class.getSimpleName())
-                    .commit();
-            getSupportActionBar().setTitle(getResources().getString(R.string.now_playing));
+            getFragment(currentFragment, getResources().getString(R.string.now_playing));
         } else if (id == R.id.nav_gallery) {
             UpComingFragment upComingFragment = new UpComingFragment();
-
-            getSupportFragmentManager().beginTransaction().replace(R.id.content_navigation, upComingFragment, UpComingFragment.class.getSimpleName())
-                    .commit();
-            getSupportActionBar().setTitle(getResources().getString(R.string.up_coming));
+            getFragment(upComingFragment, getResources().getString(R.string.up_coming));
         } else if (id == R.id.nav_slideshow) {
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
         } else if (id == R.id.nav_favorite){
             FavoriteFragment favoriteFragment = new FavoriteFragment();
-            getSupportFragmentManager().beginTransaction().replace(R.id.content_navigation, favoriteFragment, NowPlayingFragment.class.getSimpleName())
-                    .commit();
-            getSupportActionBar().setTitle(getResources().getString(R.string.favorite));
+            getFragment(favoriteFragment, getResources().getString(R.string.favorite));
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private void getFragment(Fragment fragmentName, String ActionBarTitle){
+        getSupportFragmentManager().beginTransaction().replace(R.id.content_navigation, fragmentName, fragmentName.getClass().getSimpleName()).commit();
+        getSupportActionBar().setTitle(ActionBarTitle);
     }
 }

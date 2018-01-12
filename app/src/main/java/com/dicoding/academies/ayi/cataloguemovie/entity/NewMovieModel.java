@@ -1,12 +1,15 @@
 package com.dicoding.academies.ayi.cataloguemovie.entity;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.SerializedName;
 
 /**
  * Created by ayi on 16/12/17.
  */
 
-public class NewMovieModel {
+public class NewMovieModel implements Parcelable{
 
     @SerializedName("title")
     private String title;
@@ -20,6 +23,27 @@ public class NewMovieModel {
     private String poster;
     @SerializedName("backdrop_path")
     private String banner;
+
+    protected NewMovieModel(Parcel in) {
+        title = in.readString();
+        popularity = in.readString();
+        release_date = in.readString();
+        overview = in.readString();
+        poster = in.readString();
+        banner = in.readString();
+    }
+
+    public static final Creator<NewMovieModel> CREATOR = new Creator<NewMovieModel>() {
+        @Override
+        public NewMovieModel createFromParcel(Parcel in) {
+            return new NewMovieModel(in);
+        }
+
+        @Override
+        public NewMovieModel[] newArray(int size) {
+            return new NewMovieModel[size];
+        }
+    };
 
     public String getTitle() {
         return title;
@@ -67,5 +91,20 @@ public class NewMovieModel {
 
     public void setBanner(String banner) {
         this.banner = banner;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(title);
+        dest.writeString(popularity);
+        dest.writeString(release_date);
+        dest.writeString(overview);
+        dest.writeString(poster);
+        dest.writeString(banner);
     }
 }
