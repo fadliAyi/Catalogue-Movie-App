@@ -78,8 +78,6 @@ public class UpComingFragment extends Fragment {
         call1.enqueue(new Callback<ResponseNewMovieModel>() {
             @Override
             public void onResponse(Call<ResponseNewMovieModel> call, Response<ResponseNewMovieModel> response) {
-                //Clear dlu moviewmodels nnya
-
                 movieModels = response.body().getResults();
                 UpComingRecyclerView.setAdapter(new UpComingAdapter(movieModels, getActivity()));
             }

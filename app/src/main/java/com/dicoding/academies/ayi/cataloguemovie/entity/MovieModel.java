@@ -3,11 +3,14 @@ package com.dicoding.academies.ayi.cataloguemovie.entity;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.util.ArrayList;
+import java.util.stream.Stream;
+
 /**
  * Created by ayi on 02/12/17.
  */
 
-public class MovieModel implements Parcelable {
+public class MovieModel extends ArrayList<Parcelable> implements Parcelable {
     private String title;
     private String populariry;
     private String release_date;
@@ -119,4 +122,14 @@ public class MovieModel implements Parcelable {
             return new MovieModel[size];
         }
     };
+
+    @Override
+    public Stream<Parcelable> stream() {
+        return null;
+    }
+
+    @Override
+    public Stream<Parcelable> parallelStream() {
+        return null;
+    }
 }

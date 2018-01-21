@@ -17,6 +17,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.dicoding.academies.ayi.cataloguemovie.NotificationActivity;
 import com.dicoding.academies.ayi.cataloguemovie.R;
 
 public class NavigationActivity extends AppCompatActivity
@@ -108,6 +109,9 @@ public class NavigationActivity extends AppCompatActivity
         } else if (id == R.id.nav_favorite){
             FavoriteFragment favoriteFragment = new FavoriteFragment();
             getFragment(favoriteFragment, getResources().getString(R.string.favorite));
+        }else if (id == R.id.setting_notification){
+            Intent intent = new Intent(this, NotificationActivity.class);
+            startActivity(intent);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

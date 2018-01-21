@@ -3,6 +3,7 @@ package com.dicoding.academies.ayi.cataloguemovie.activity;
 import android.app.LoaderManager;
 import android.content.Intent;
 import android.content.Loader;
+import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -103,7 +104,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         mMovie.setPoster(movieItems.getImgMovie());
         mMovie.setBanner(movieItems.getBanner());
         Intent intent = new Intent(this, MovieItemActivity.class);
-        intent.putExtra(MovieItemActivity.EXTRA_MOVIE, mMovie);
+        intent.putExtra(MovieItemActivity.EXTRA_MOVIE, (Parcelable) mMovie);
         startActivity(intent);
 
     }

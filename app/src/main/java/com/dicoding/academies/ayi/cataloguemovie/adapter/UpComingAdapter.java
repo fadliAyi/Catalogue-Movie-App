@@ -2,6 +2,7 @@ package com.dicoding.academies.ayi.cataloguemovie.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Parcelable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -61,7 +62,7 @@ public class UpComingAdapter extends RecyclerView.Adapter<UpComingAdapter.UpComi
         mMovie.setBanner(movieModels.get(position).getBanner());
         mMovie.setPoster(movieModels.get(position).getPoster());
         Intent intent = new Intent(v.getContext(), MovieItemActivity.class);
-        intent.putExtra(MovieItemActivity.EXTRA_MOVIE, mMovie);
+        intent.putExtra(MovieItemActivity.EXTRA_MOVIE, (Parcelable) mMovie);
         v.getContext().startActivity(intent);
     }
 

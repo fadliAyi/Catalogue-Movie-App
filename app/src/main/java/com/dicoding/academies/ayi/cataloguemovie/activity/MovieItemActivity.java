@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.IntentFilter;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -14,7 +15,10 @@ import com.dicoding.academies.ayi.cataloguemovie.db.FavoriteHelper;
 import com.dicoding.academies.ayi.cataloguemovie.entity.Favorite;
 import com.dicoding.academies.ayi.cataloguemovie.entity.MovieModel;
 import com.dicoding.academies.ayi.cataloguemovie.R;
+import com.dicoding.academies.ayi.cataloguemovie.entity.NewMovieModel;
 import com.squareup.picasso.Picasso;
+
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -36,7 +40,6 @@ public class MovieItemActivity extends AppCompatActivity {
     private FavoriteHelper favoriteHelper;
     private boolean isFavorite = false;
     private int favorite;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

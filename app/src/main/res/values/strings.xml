@@ -28,4 +28,11 @@
     <string name="appwidget_text">Favorite Movie</string>
     <string name="add_widget">Add widget</string>
     <string name="empty_text">No data</string>
+    <string name="set_daily_reminder">Set Notifikasi Daily Reminder</string>
+    <string name="set_date">set date</string>
+    <string name="set_time">set time</string>
+    <string name="btn_active_daily">Aktifkan</string>
+    <string name="btn_unactive_daily">Nonaktifkan</string>
+    <string name="set_notif_upcoming">Set Notifikasi UpComing Movie</string>
+    <string name="set_notification">Set Notification</string>
 </resources>

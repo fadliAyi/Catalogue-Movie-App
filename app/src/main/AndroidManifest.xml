@@ -4,6 +4,11 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.SET_ALARM" />
+
     <permission
         android:name="com.dicoding.academies.ayi.cataloguemovie.READ_DATABASE"
         android:protectionLevel="normal" />
@@ -29,7 +34,8 @@
         <!-- </activity> -->
         <activity
             android:name=".activity.MovieItemActivity"
-            android:parentActivityName=".activity.NavigationActivity" />
+            android:parentActivityName=".activity.NavigationActivity"
+            />
         <activity
             android:name=".activity.NavigationActivity"
             android:label="@string/title_activity_navigation"
@@ -61,8 +67,25 @@
                 android:resource="@xml/image_banner_widget_info" />
         </receiver>
 
-        <service android:name=".stackWidget.StackWidgetService"
+        <service
+            android:name=".stackWidget.StackWidgetService"
             android:permission="android.permission.BIND_REMOTEVIEWS" />
+        <service android:name=".service.SchedulerService"
+            android:permission="com.google.android.gms.permission.BIND_NETWORK_TASK_SERVICE"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.android.gms.gcm.ACTION_TASK_READY"/>
+            </intent-filter>
+        </service>
+
+
+        <activity android:name=".NotificationActivity" />
+
+        <receiver
+            android:name=".service.AlarmReceiver"
+            android:enabled="true"
+            android:exported="true"
+            />
     </application>
 
 </manifest>

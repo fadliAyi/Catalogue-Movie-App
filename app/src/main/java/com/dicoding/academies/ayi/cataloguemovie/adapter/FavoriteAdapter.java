@@ -3,6 +3,7 @@ package com.dicoding.academies.ayi.cataloguemovie.adapter;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Parcelable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -70,7 +71,7 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHo
         mMovie.setBanner(listFavorites.get(position).getBanner());
         mMovie.setPoster(listFavorites.get(position).getPoster());
         Intent intent = new Intent(v.getContext(), MovieItemActivity.class);
-        intent.putExtra(MovieItemActivity.EXTRA_MOVIE, mMovie);
+        intent.putExtra(MovieItemActivity.EXTRA_MOVIE, (Parcelable) mMovie);
         intent.putExtra(MovieItemActivity.IS_FAVORITE, 1);
         v.getContext().startActivity(intent);
     }
